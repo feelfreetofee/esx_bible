@@ -10,12 +10,12 @@ const options = [
 
 function OpenBible(url) {
 	const menu = document.body.create('nav')
-	for (const {label, option} of options)
+	for (const {label, action} of options)
 		menu.create('button', {
 			innerText: label,
 			onclick() {
-				if (option)
-					option()
+				if (action)
+					action()
 			}
 		})
 	document.body.create('iframe', {
