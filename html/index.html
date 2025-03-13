@@ -1,0 +1,14 @@
+<script>
+Node.prototype.create = function(tag = 'div', source) {
+	return Object.assign(this.appendChild(document.createElement(tag, {is: source?.is})), source)
+}
+
+this.onmessage = ({data}) => this[data.shift()]?.(...data)
+
+const TriggerNUICallback = (nuiCallback, data) => fetch(`https://${GetParentResourceName()}/${nuiCallback}`, {
+    method: 'POST',
+    body: data ? JSON.stringify(data) : undefined
+}).then(r => r.json())
+</script>
+<script src=js/index.js defer></script>
+<link rel=stylesheet href=css/index.css>
